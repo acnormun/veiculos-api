@@ -41,6 +41,10 @@ app.post('/veiculos', (req, res) => {
         return res.status(400).end()
     }
 
+    if(veiculos.find(item => item.id === req.body.id)){
+        return res.status(409).end()
+    }
+
     veiculos.push(body)
     return res.json(veiculos)
 })
